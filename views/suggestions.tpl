@@ -102,27 +102,7 @@
     </head>
     <body>
         <header>
-            <h1 class="logo">Welcome to AISuggestU</h1>
-            <div class="description">
-                AISuggestU is a simple & powerful...
-            </div>
-
-            <div class="d-flex justify-content-center">
-                <div class="wrap-login100 p-t-30 p-b-50">
-                    <form class="login100-form validate-form p-b-33 p-t-5" action="/" method="POST">
-                        <div class="wrap-input100 validate-input" data-validate="Enter username">
-                            <input class="input100" type="text" name="username" placeholder="Github User" />
-                            <span class="focus-input100" data-placeholder="&#xe82a;"></span>
-                        </div>
-
-                        <div class="container-login100-form-btn m-t-32">
-                            <button class="login100-form-btn">
-                                GET Suggestions
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            <h1 class="logo">Suggestions for {{.Username}}</h1>
         </header>
         <footer>
             <div class="author">
