@@ -31,7 +31,7 @@ func getRecommendation(user string) []ClassifiedRepo {
 	// Obtain a client and connect to the default Elasticsearch installation
 	// on 127.0.0.1:9200. Of course you can configure your client to connect
 	// to other hosts and configure it in various other ways.
-	client, err := elastic.NewClient()
+	client, err := elastic.NewClient(elastic.SetURL("elastic-search:9200"))
 	if err != nil {
 		// Handle error
 		panic(err)
