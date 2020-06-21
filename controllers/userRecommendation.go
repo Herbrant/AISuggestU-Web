@@ -107,7 +107,6 @@ func getRecommendation(user string) []ClassifiedRepo {
 		var ttyp ClassifiedRepo
 		for _, item := range searchResult.Each(reflect.TypeOf(ttyp)) {
 			if t, ok := item.(ClassifiedRepo); ok {
-				fmt.Println(t)
 				ClassifiedRepoList = append(ClassifiedRepoList, t)
 			}
 		}

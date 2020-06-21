@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 	"regexp"
+	"strings"
 
 	"github.com/bbalet/stopwords"
 	"gopkg.in/confluentinc/confluent-kafka-go.v1/kafka"
@@ -114,6 +115,10 @@ func getReadme(url string) (string, error) {
 	return readme, err
 }
 
+func clearURL(url string) string {
+	return strings.Replace(url, "https://api.github.com/repos", "https://github.com", 1)
+}
+
 func sendStarredRepo(user string) {
 	url := fmt.Sprintf("https://api.github.com/users/%s/starred?per_page=100", user)
 
@@ -148,7 +153,7 @@ func sendStarredRepo(user string) {
 			continue
 		}
 
-		newMessage := Message{user, url, readme}
+		newMessage := Message{user, clearURL(url), readme}
 
 		jsonMessage, err := json.Marshal(newMessage)
 
