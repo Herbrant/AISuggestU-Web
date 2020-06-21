@@ -38,7 +38,7 @@ func getRecommendation(user string) []ClassifiedRepo {
 	}
 
 	// Ping the Elasticsearch server to get e.g. the version number
-	info, code, err := client.Ping("http://127.0.0.1:9200").Do(ctx)
+	info, code, err := client.Ping("elastic-search:9200").Do(ctx)
 	if err != nil {
 		// Handle error
 		panic(err)
@@ -46,7 +46,7 @@ func getRecommendation(user string) []ClassifiedRepo {
 	fmt.Printf("Elasticsearch returned with code %d and version %s\n", code, info.Version.Number)
 
 	// Getting the ES version number is quite common, so there's a shortcut
-	esversion, err := client.ElasticsearchVersion("http://127.0.0.1:9200")
+	esversion, err := client.ElasticsearchVersion("elastic-search:9200")
 	if err != nil {
 		// Handle error
 		panic(err)

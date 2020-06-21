@@ -41,7 +41,7 @@ type ReadmeResponse struct {
 }
 
 func initKafkaProducer() *kafka.Producer {
-	p, err := kafka.NewProducer(&kafka.ConfigMap{"bootstrap.servers": "127.0.0.1:29092"})
+	p, err := kafka.NewProducer(&kafka.ConfigMap{"bootstrap.servers": "kafka:29092"})
 
 	if err != nil {
 		fmt.Println("Error initKafkaProducer")
