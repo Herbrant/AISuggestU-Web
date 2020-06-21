@@ -10,6 +10,11 @@ type SuggestionRequest struct {
 	Username string `form:"username"`
 }
 
+type Suggestion struct {
+	Name           string
+	ClassifiedRepo ClassifiedRepo
+}
+
 type MainController struct {
 	beego.Controller
 }
@@ -25,6 +30,36 @@ func (c *MainController) Post() {
 		fmt.Println("Request Error")
 	}
 
+	fmt.Println("Send starred repos to kafka")
+	sendStarredRepo(s.Username)
+
+	fmt.Println("Send suggestions request")
+	recommendations := getRecommendation(s.Username)
+	suggestions := createSuggestionsList(recommendations)
+
 	c.Data["Username"] = s.Username
+	c.Data["Suggestions"] = suggestions
 	c.TplName = "suggestions.tpl"
+}
+
+func createSuggestionsList(recommendations []ClassifiedRepo) []Suggestion {
+	var suggestionsList []Suggestion
+
+	for _, val := range recommendations {
+		suggestionsList = append(suggestionsList, Suggestion{val.URL[findLastSlashIndex(val.URL)+1:], val})
+	}
+
+	return suggestionsList
+}
+
+func findLastSlashIndex(val string) int {
+	index := 0
+
+	for i, ch := range val {
+		if ch == '/' {
+			index = i
+		}
+	}
+
+	return index
 }

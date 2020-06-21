@@ -5,8 +5,6 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <!--===============================================================================================-->
-        <link rel="icon" type="image/png" href="/static/images/icons/favicon.ico" />
-        <!--===============================================================================================-->
         <link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/css/bootstrap.min.css" />
         <!--===============================================================================================-->
         <link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
@@ -45,7 +43,7 @@
                 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
                 font-size: 14px;
                 line-height: 20px;
-                background-color: #fff;
+                background-color: #293241;
             }
 
             header,
@@ -65,7 +63,6 @@
                 font-size: 42px;
                 padding: 250px 0 70px;
                 font-weight: normal;
-                text-shadow: 0px 1px 2px #ddd;
             }
 
             header {
@@ -76,16 +73,27 @@
                 line-height: 1.8;
                 text-align: center;
                 padding: 50px 0;
-                color: #999;
+                color: #ffff;
             }
 
             .description {
                 text-align: center;
                 font-size: 16px;
+                color: #ffff;
             }
 
             a {
-                color: #444;
+                color: #ee6c4d;
+                text-decoration: none;
+            }
+
+            h1 {
+                color: #ffff;
+                text-decoration: none;
+            }
+
+            h2 {
+                color: #ffff;
                 text-decoration: none;
             }
 
@@ -104,12 +112,24 @@
         <header>
             <h1 class="logo">Suggestions for {{.Username}}</h1>
         </header>
+        
+        
+        
+
+        <div class="d-flex justify-content-center">
+                <div class="wrap-login100 p-t-30 p-b-50">
+                    {{range $val := .Suggestions}}
+                        <a href="{{$val.ClassifiedRepo.URL}}"><h2>{{$val.Name}}</h2></a><br>
+                    {{end}}
+                </div>
+            </div>
+
+        
         <footer>
             <div class="author">
                 Coded by <a href=""> Giorgio Locicero</a> & <a href="">Davide Carnemolla</a>
             </div>
         </footer>
-        <div class="backdrop"></div>
 
         <!--===============================================================================================-->
         <script src="/static/vendor/jquery/jquery-3.2.1.min.js"></script>

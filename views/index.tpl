@@ -45,7 +45,7 @@
                 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
                 font-size: 14px;
                 line-height: 20px;
-                background-color: #fff;
+                background-color: #293241;
             }
 
             header,
@@ -65,7 +65,6 @@
                 font-size: 42px;
                 padding: 250px 0 70px;
                 font-weight: normal;
-                text-shadow: 0px 1px 2px #ddd;
             }
 
             header {
@@ -76,16 +75,22 @@
                 line-height: 1.8;
                 text-align: center;
                 padding: 50px 0;
-                color: #999;
+                color: #ffff;
             }
 
             .description {
                 text-align: center;
                 font-size: 16px;
+                color: #ffff;
             }
 
             a {
-                color: #444;
+                color: #ee6c4d;
+                text-decoration: none;
+            }
+
+            h1 {
+                color: #ffff;
                 text-decoration: none;
             }
 
@@ -129,7 +134,7 @@
                 Coded by <a href=""> Giorgio Locicero</a> & <a href="">Davide Carnemolla</a>
             </div>
         </footer>
-        <div class="backdrop"></div>
+
 
         <!--===============================================================================================-->
         <script src="/static/vendor/jquery/jquery-3.2.1.min.js"></script>
