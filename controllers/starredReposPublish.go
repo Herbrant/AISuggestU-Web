@@ -18,6 +18,7 @@ type Message struct {
 	Owner  string `json:"owner"`
 	URL    string `json:"url"`
 	Readme string `json:"readme"`
+	Stars  int    `json:"stars"`
 }
 
 type ReadmeResponse struct {
@@ -120,6 +121,7 @@ func clearURL(url string) string {
 }
 
 func sendStarredRepo(user string) {
+
 	url := fmt.Sprintf("https://api.github.com/users/%s/starred?per_page=100", user)
 
 	client := &http.Client{}
@@ -129,7 +131,6 @@ func sendStarredRepo(user string) {
 	resp, err := client.Do(req)
 
 	if err != nil {
-		fmt.Println("Error")
 		panic(err)
 	}
 
@@ -146,14 +147,16 @@ func sendStarredRepo(user string) {
 	p := initKafkaProducer()
 
 	for _, result := range results {
-		url := fmt.Sprintf("%s", result["url"])
+		url, _ := result["url"].(string)
 		readme, err := getReadme(url)
 
 		if err != nil {
 			continue
 		}
 
-		newMessage := Message{user, clearURL(url), readme}
+		stars := int(result["stargazers_count"].(float64))
+
+		newMessage := Message{user, clearURL(url), readme, stars}
 
 		jsonMessage, err := json.Marshal(newMessage)
 
