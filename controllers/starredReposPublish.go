@@ -39,9 +39,10 @@ type ReadmeResponse struct {
 }
 
 func initKafkaProducer() *kafka.Producer {
-	p, err := kafka.NewProducer(&kafka.ConfigMap{"bootstrap.servers": "127.0.0.1:9092"})
+	p, err := kafka.NewProducer(&kafka.ConfigMap{"bootstrap.servers": "127.0.0.1:29092"})
 
 	if err != nil {
+		fmt.Println("Error initKafkaProducer")
 		panic(err)
 	}
 
@@ -123,6 +124,7 @@ func sendStarredRepo(user string) {
 	resp, err := client.Do(req)
 
 	if err != nil {
+		fmt.Println("Error")
 		panic(err)
 	}
 
@@ -154,7 +156,6 @@ func sendStarredRepo(user string) {
 			continue
 		}
 
-		fmt.Printf("Owner: %s URL: %s README: OK\n", user, url)
 		userStarred(p, jsonMessage)
 	}
 }

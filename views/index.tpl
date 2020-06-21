@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Login V16</title>
+        <title>AISuggestU</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <!--===============================================================================================-->
@@ -56,14 +56,9 @@
             }
 
             .logo {
-                background-image: url("/static/img/logo.svg");
-                background-repeat: no-repeat;
-                -webkit-background-size: 125px 125px;
-                background-size: 125px 125px;
-                background-position: center center;
                 text-align: center;
                 font-size: 42px;
-                padding: 250px 0 70px;
+                padding: 50px 0 50px;
                 font-weight: normal;
             }
 
@@ -107,10 +102,15 @@
     </head>
     <body>
         <header>
+            <div class="col">
+                <img class="card-img-top" style="display:block; width: 20rem; height: 20rem; margin: auto;" src="/static/img/version.svg" alt="Card image cap">
+            </div>
             <h1 class="logo">Welcome to AISuggestU</h1>
             <div class="description">
                 AISuggestU is a simple & powerful...
             </div>
+
+            
 
             <div class="d-flex justify-content-center">
                 <div class="wrap-login100 p-t-30 p-b-50">

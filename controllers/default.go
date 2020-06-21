@@ -35,6 +35,8 @@ func (c *MainController) Post() {
 
 	fmt.Println("Send suggestions request")
 	recommendations := getRecommendation(s.Username)
+
+	fmt.Println(recommendations)
 	suggestions := createSuggestionsList(recommendations)
 
 	c.Data["Username"] = s.Username
