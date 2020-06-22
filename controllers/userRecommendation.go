@@ -97,8 +97,9 @@ func getRecommendation(user string) []ClassifiedRepo {
 			Index("repositories"). // search in index "twitter"
 			Query(joinedQuery).    // specify the query
 			From(0).Size(100).     // take documents 0-9
-			Pretty(true).          // pretty print request and response JSON
-			Do(ctx)                // execute
+			Sort("stars", false).
+			Pretty(true). // pretty print request and response JSON
+			Do(ctx)       // execute
 
 		if err != nil {
 			continue
