@@ -27,11 +27,7 @@
         <link rel="stylesheet" type="text/css" href="/static/css/main.css" />
         <!--===============================================================================================-->
 
-        <link
-            rel="shortcut icon"
-            href="/static/img/logo.svg"
-            type="image/x-icon"
-        />
+        <link rel="shortcut icon" href="/static/img/logo.svg" type="image/x-icon" />
 
         <style type="text/css">
             *,
@@ -103,14 +99,12 @@
     <body>
         <header>
             <div class="col">
-                <img class="card-img-top" style="display:block; width: 20rem; height: 20rem; margin: auto;" src="/static/img/version.svg" alt="Card image cap">
+                <img class="card-img-top" style="display: block; width: 20rem; height: 20rem; margin: auto;" src="/static/img/version.svg" alt="Card image cap" />
             </div>
             <h1 class="logo">Welcome to AISuggestU</h1>
             <div class="description">
                 AISuggestU is a simple & powerful...
             </div>
-
-            
 
             <div class="d-flex justify-content-center">
                 <div class="wrap-login100 p-t-30 p-b-50">
@@ -130,11 +124,8 @@
             </div>
         </header>
         <footer>
-            <div class="author">
-                Coded by <a href=""> Giorgio Locicero</a> & <a href="">Davide Carnemolla</a>
-            </div>
+            <div class="author">Coded by <a href=""> Giorgio Locicero</a> & <a href="">Davide Carnemolla</a></div>
         </footer>
-
 
         <!--===============================================================================================-->
         <script src="/static/vendor/jquery/jquery-3.2.1.min.js"></script>

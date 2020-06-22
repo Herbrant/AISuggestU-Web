@@ -25,11 +25,7 @@
         <link rel="stylesheet" type="text/css" href="/static/css/main.css" />
         <!--===============================================================================================-->
 
-        <link
-            rel="shortcut icon"
-            href="/static/img/logo.svg"
-            type="image/x-icon"
-        />
+        <link rel="shortcut icon" href="/static/img/logo.svg" type="image/x-icon" />
 
         <style type="text/css">
             *,
@@ -88,7 +84,7 @@
             }
 
             h2 {
-                color: #ffff;
+                color: #293241;
                 text-decoration: none;
             }
 
@@ -106,24 +102,33 @@
     <body>
         <header>
             <div class="col">
-                <img class="card-img-top" style="display:block; width: 20rem; height: 20rem; margin: auto;" src="/static/img/activity.svg" alt="Card image cap">
+                <img class="card-img-top" style="display: block; width: 20rem; height: 20rem; margin: auto;" src="/static/img/activity.svg" alt="Card image cap" />
             </div>
             <h1 class="logo">Suggestions for {{.Username}}</h1>
         </header>
 
-        <div class="d-flex justify-content-center">
-                <div class="wrap-login100 p-t-30 p-b-50">
-                    {{range $val := .Suggestions}}
-                        <a href="{{$val.ClassifiedRepo.URL}}"><h2>{{$val.Name}}</h2></a><br>
-                    {{end}}
+        <div class="container">
+            {{range $val := .Suggestions}}
+            <div class="row h-100">
+                <div class="col-sm-12 my-auto">
+                    <div class="card">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h2 class="card-title">{{$val.Name}}</h2>
+                                <p class="card-text">Description.</p>
+                                <div class="container-login100-form-btn m-t-32">
+                                    <a href="{{$val.ClassifiedRepo.URL}}" class="login100-form-btn">Github</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            {{end}}
+        </div>
 
-        
         <footer>
-            <div class="author">
-                Coded by <a href=""> Giorgio Locicero</a> & <a href="">Davide Carnemolla</a>
-            </div>
+            <div class="author">Coded by <a href=""> Giorgio Locicero</a> & <a href="">Davide Carnemolla</a></div>
         </footer>
 
         <!--===============================================================================================-->
