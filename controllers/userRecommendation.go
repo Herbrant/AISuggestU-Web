@@ -54,7 +54,7 @@ func getRecommendation(user string) []ClassifiedRepo {
 	fmt.Printf("Elasticsearch version %s\n", esversion)
 
 	// Search with a term query
-	termQuery := elastic.NewTermQuery("owner", user)
+	termQuery := elastic.NewMatchQuery("owner", user)
 	searchResult, err := client.Search().
 		Index("repositories"). // search in index "twitter"
 		Query(termQuery).      // specify the query
@@ -90,7 +90,7 @@ func getRecommendation(user string) []ClassifiedRepo {
 	for _, label := range labelList {
 		// Search with a term query
 		labelQuery := elastic.NewTermQuery("label", label)
-		ownerNotQuery := elastic.NewBoolQuery().MustNot(elastic.NewTermQuery("owner", user))
+		ownerNotQuery := elastic.NewBoolQuery().MustNot(elastic.NewMatchQuery("owner", user))
 		joinedQuery := elastic.NewBoolQuery().Must(labelQuery, ownerNotQuery)
 
 		searchResult, err := client.Search().
