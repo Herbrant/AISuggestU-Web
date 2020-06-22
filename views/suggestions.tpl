@@ -117,13 +117,14 @@
                                 <h2 class="card-title">{{$val.Name}}</h2>
                                 <p class="card-text">Description.</p>
                                 <div class="container-login100-form-btn m-t-32">
-                                    <a href="{{$val.ClassifiedRepo.URL}}" class="login100-form-btn">Github</a>
+                                    <a href="{{$val.ClassifiedRepo.URL}}" target="_blank" rel="noopener noreferrer" class="login100-form-btn">Github</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <br />
             {{end}}
         </div>
 
