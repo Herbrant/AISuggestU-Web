@@ -98,6 +98,7 @@ func getRecommendation(user string) []ClassifiedRepo {
 			Query(joinedQuery).    // specify the query
 			From(0).Size(100).     // take documents 0-9
 			Sort("stars", false).
+			Size(5).
 			Pretty(true). // pretty print request and response JSON
 			Do(ctx)       // execute
 
