@@ -129,7 +129,7 @@
         </div>
 
         <footer>
-            <div class="author">Coded by <a href=""> Giorgio Locicero</a> & <a href="">Davide Carnemolla</a></div>
+            <div class="author">Coded by <a href="https://github.com/josura" target="_blank"> Giorgio Locicero</a> & <a href="https://github.com/Herbrant" target="_blank">Davide Carnemolla</a></div>
         </footer>
 
         <!--===============================================================================================-->
